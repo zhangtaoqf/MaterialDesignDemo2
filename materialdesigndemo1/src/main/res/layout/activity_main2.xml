@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="test.zt.com.materialdesigndemo1.Main2Activity">
+
+    <!--
+        蓝色区域
+    -->
+    <!--
+        响应滚动的控件的满足条件：
+            1.必须要放置在appBarLayout内部
+            2.必须要添加滚动标志app:layout_scrollFlags=""
+                scroll:可滚动
+                enterAlways:一直滚动
+    -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/activity_main_appbarLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            app:contentScrim="@color/colorPrimary"
+            android:layout_height="200dp"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|exitUntilCollapsed"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/asd"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <!--
+        白色区域
+    -->
+    <include layout="@layout/content_main2" />
+
+
+    <!--
+        app:layout_anchor="@id/"
+        app:layout_anchorGravity=""
+    -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchorGravity="right|bottom|end"
+        app:layout_anchor="@id/activity_main_appbarLayoutId"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
